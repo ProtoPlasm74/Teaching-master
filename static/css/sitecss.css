@@ -5,6 +5,9 @@
     padding-left: 80px;
 }
 
+textarea {
+    resize: none;
+}
 /** #access {
   margin-bottom: 5px;
 }**/
