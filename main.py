@@ -7,15 +7,15 @@ def hello_world():
     return render_template("index.html")
 	
 @app.route('/pg2')
-def hello_world2():
+def progress_bar():
     return render_template("pg2.html")
 
 @app.route('/Results')
-def hello_world3():
+def results():
     return render_template("Results.html")
 
 @app.route('/index_return')
-def hello_world4():
+def index_return():
     return render_template("index_return.html")
 
 if __name__ == "__main__":
