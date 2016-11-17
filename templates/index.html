@@ -19,6 +19,31 @@
   
 </head>
 <body>
+<br>
+<div align="right">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+        <!-- Identify your business so that you can collect the payments. -->
+        <input type="hidden" name="business"
+        value="jarockwood14@my.trine.edu">
+
+        <!-- Specify a Donate button. -->
+        <input type="hidden" name="cmd" value="_donations">
+
+        <!-- Specify details about the contribution -->
+        <input type="hidden" name="item_name" value="Trine Software Engineers">
+        <input type="hidden" name="item_number" value="PDF Converter">
+        <input type="hidden" name="currency_code" value="USD">
+
+        <!-- Display the payment button. -->
+        <input type="image" name="submit"
+        src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png"
+        alt="Donate">
+        <img alt="" width="1" height="1"
+        src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+      </form>
+  </div>
   <div class="container">
 
     <!-- Jumbotron -->
@@ -29,10 +54,10 @@
 
     <!--Wells -->
     <div class="jumbotron">
-		<form action="/file-upload"
-		  class="dropzone"
-		  id="file_select"></form>
-	</div>
+      <form action="/file-upload"
+      class="dropzone"
+      id="file_select"></form>
+    </div>
     
     <!-- BUTTON -->
     <div class="text-center" > 
