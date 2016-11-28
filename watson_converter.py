@@ -7,7 +7,12 @@ document_conversion = DocumentConversionV1(
   username='6898f353-4f93-4a45-ab5f-7e0c73dd252d',
   version='2015-12-15'
 )
-
+  # Catch any issues with the file here
+try:
+  # Your code goes here
+except WatsonException as e:
+  print e
+  
 config = {
   'conversion_target': 'ANSWER_UNITS',
   # Use a custom configuration.
