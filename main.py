@@ -11,8 +11,9 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/', methods=['GET', 'POST'])
-def hello_world():
+def first_page():
     return render_template("index.html")
+    
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
