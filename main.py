@@ -4,16 +4,18 @@ from werkzeug.utils import secure_filename
 from engine.converter import ConvertDoc
 import json
 
+
 UPLOAD_FOLDER = ''#put in uploads folder path
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'pdf'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+
 @app.route('/', methods=['GET', 'POST'])
-def first_page():
-    return render_template("index.html")
-    
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
@@ -31,6 +33,15 @@ def upload_file():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('uploaded_file',
                                     filename=filename))
+            return render_template("index.html")
+
+    return render_template("index.html")
+
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+        return send_from_directory(app.config['UPLOAD_FOLDER'],
+                                               filename)
 	
 @app.route('/pg2')
 def progress_bar():
