@@ -1,6 +1,12 @@
-#This is a change to the main file
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory
+from engine.converter import ConvertDoc
+import json
+
+UPLOAD_FOLDER = ''#put in uploads folder path
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'pdf'])
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def hello_world():
