@@ -1,6 +1,5 @@
 import json
 from watson_developer_cloud import DocumentConversionV1
-import chrono
 import datetime
 
 
