@@ -5,7 +5,7 @@ from engine.converter import ConvertDoc
 import json
 
 
-UPLOAD_FOLDER = ''#put in uploads folder path
+UPLOAD_FOLDER = 'uploads'#put in uploads folder path
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif', 'pdf'])
 
 app = Flask(__name__)
