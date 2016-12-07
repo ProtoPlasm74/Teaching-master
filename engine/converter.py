@@ -9,7 +9,7 @@ class ConvertDoc():
 		  url= 'https://gateway.watsonplatform.net/document-conversion/api',
 		  username='dc03be7f-6189-4dbf-aa20-c96eadf2af62',
 		  password='AXrXfupGzIpH',
-		  version='2015-12-15'
+		  version='2016-02-10'
 		)
 
 		config = {
@@ -17,17 +17,21 @@ class ConvertDoc():
 		  # Use a custom configuration.
 		  #Configur
 		  #http://www.ibm.com/watson/developercloud/doc/document-conversion/customizing.shtml
-		  'word': {
-		    'heading': {
-		      'fonts': [
-		        {'level': 1, 'min_size': 24},
-		        {'level': 2, 'min_size': 16, 'max_size': 24}
-		      ]
-		    }
-		  }
+			  "pdf": {
+        		"heading": {
+		            "fonts": [
+		                {"level": 1, "min_size": 24, "max_size": 80},
+		                {"level": 2, "min_size": 18, "max_size": 24},
+		                {"level": 2, "min_size": 18, "max_size": 24},
+		                {"level": 3, "min_size": 13, "max_size": 18},
+		                {"level": 3, "min_size": 13, "max_size": 18},
+		                {"level": 4, "min_size": 11, "max_size": 13}
+		            ]
+        		}
+    		}
 		}
 
-		with open(('uploads\\guide.pdf'), 'r') as document:
+		with open(('uploads/guide.pdf'), 'r') as document:
 		  response = document_conversion.convert_document(document=document, config=config)
 		  print response.json()
 
