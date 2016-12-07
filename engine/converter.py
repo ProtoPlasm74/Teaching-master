@@ -1,6 +1,7 @@
 import json
 from watson_developer_cloud import DocumentConversionV1
 import datetime
+import chrono
 
 
 class ConvertDoc():
@@ -26,7 +27,7 @@ class ConvertDoc():
 		  }
 		}
 
-		with open(('/Users/zacmorgan/Documents/Github/Teaching-master/uploads/guide.pdf'), 'r') as document:
+		with open(('uploads/guide.pdf'), 'r') as document:
 		  response = document_conversion.convert_document(document=document, config=config)
 		  print(json.dumps(response, indent=2))
 
