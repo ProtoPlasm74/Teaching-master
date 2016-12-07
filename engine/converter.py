@@ -5,8 +5,9 @@ import datetime
 
 class ConvertDoc():
 		document_conversion = DocumentConversionV1(
-		  username='https://gateway.watsonplatform.net/document-conversion/api',
-		  password='6898f353-4f93-4a45-ab5f-7e0c73dd252d',
+		  url= 'https://gateway.watsonplatform.net/document-conversion/api',
+		  username='dc03be7f-6189-4dbf-aa20-c96eadf2af62',
+		  password='AXrXfupGzIpH',
 		  version='2015-12-15'
 		)
 
@@ -25,7 +26,7 @@ class ConvertDoc():
 		  }
 		}
 
-		with open(('sample-docx.docx'), 'r') as document:
+		with open(('/Users/zacmorgan/Documents/Github/Teaching-master/uploads/guide.pdf'), 'r') as document:
 		  response = document_conversion.convert_document(document=document, config=config)
 		  print(json.dumps(response, indent=2))
 
