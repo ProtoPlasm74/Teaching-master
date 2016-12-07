@@ -17,7 +17,7 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 
-@app.route('/file-upload', methods=['GET', 'POST'])
+@app.route('/file-xupload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
