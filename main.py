@@ -17,6 +17,12 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET', 'POST'])
 
+@app.route('/send-doc', methods=['GET', 'POST'])
+def send_for_conv():
+	if request.method == 'POST':
+		return render_template("results.html")
+	return render_template("index.html")
+
 @app.route('/file-upload', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -31,13 +37,19 @@ def upload_file():
             flash('No selected file')
             return redirect(request.url)
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            return redirect(url_for('uploaded_file',
-                                    filename=filename))
-            return render_template("index.html")
+			filename = secure_filename(file.filename)
+			lastFile = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+			file.save(lastFile)
+			return render_template("index.html")
 
     return render_template("index.html")
+
+
+def send_to_convert():
+	with open(lastFile, 'r') as document:
+		  response = document_conversion.convert_document(document=document, config=config)
+		  file_json = response.json
+	return
 
 
 @app.route('/uploads/<filename>')
