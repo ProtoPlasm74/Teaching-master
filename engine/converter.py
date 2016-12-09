@@ -3,7 +3,7 @@ from os.path import join, dirname
 from os import environ
 from watson_developer_cloud import DocumentConversionV1
 import datetime
-import chrono
+#import chrono
 
 
 class ConvertDoc():
