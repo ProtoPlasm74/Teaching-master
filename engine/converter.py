@@ -1,4 +1,6 @@
 import json
+from os.path import join, dirname
+from os import environ
 from watson_developer_cloud import DocumentConversionV1
 import datetime
 import chrono
@@ -13,26 +15,26 @@ class ConvertDoc():
 		)
 
 		config = {
-		  'conversion_target': 'ANSWER_UNITS',
+		  'conversion_target': 'NORMALIZED_TEXT',
 		  # Use a custom configuration.
-		  #Configure
 		  #http://www.ibm.com/watson/developercloud/doc/document-conversion/customizing.shtml
-			  "pdf": {
-        		"heading": {
-		            "fonts": [
-		                {"level": 1, "min_size": 24, "max_size": 80},
-		                {"level": 2, "min_size": 18, "max_size": 24},
-		                {"level": 2, "min_size": 18, "max_size": 24},
-		                {"level": 3, "min_size": 13, "max_size": 18},
-		                {"level": 3, "min_size": 13, "max_size": 18},
-		                {"level": 4, "min_size": 11, "max_size": 13}
-		            ]
-        		}
-    		}
+		  'word': {
+		    'heading': {
+		      'fonts': [
+		        {'level': 1, 'min_size': 24},
+		        {'level': 2, 'min_size': 16, 'max_size': 24}
+		      ]
+		    }
+		  }
 		}
 
-		with open(('uploads/guide.pdf'), 'r') as document:
+		with open('uploads/guide.pdf', 'r') as document:
 		  response = document_conversion.convert_document(document=document, config=config)
-		  print response.json()
+		  print response.text
+	  
+		def convert_doc()
+			return response.text
+
 
 		  #finding the time and parsing with chrono time/date parser needs to be done
+		  #https://github.com/wanasit/chrono-python
