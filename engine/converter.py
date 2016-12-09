@@ -15,7 +15,7 @@ class ConvertDoc():
 		config = {
 		  'conversion_target': 'ANSWER_UNITS',
 		  # Use a custom configuration.
-		  #Configur
+		  #Configure
 		  #http://www.ibm.com/watson/developercloud/doc/document-conversion/customizing.shtml
 			  "pdf": {
         		"heading": {
