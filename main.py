@@ -20,6 +20,9 @@ def allowed_file(filename):
 @app.route('/send-doc', methods=['GET', 'POST'])
 def send_for_conv():
 	if request.method == 'POST':
+		with open(lastFile, 'r') as document:
+			response = document_conversion.convert_document(document=document, config=config)
+			file_json = response.json
 		return render_template("results.html")
 	return render_template("index.html")
 
@@ -44,12 +47,6 @@ def upload_file():
 
     return render_template("index.html")
 
-
-def send_to_convert():
-	with open(lastFile, 'r') as document:
-		  response = document_conversion.convert_document(document=document, config=config)
-		  file_json = response.json
-	return
 
 
 @app.route('/uploads/<filename>')
