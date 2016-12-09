@@ -31,9 +31,10 @@ class ConvertDoc():
 		with open('uploads/guide.pdf', 'r') as document:
 		  response = document_conversion.convert_document(document=document, config=config)
 		  print response.text
-	  
-		def convert_doc()
-			return response.text
+	    
+	    #To pass to next page?
+		#def convert_doc()
+		#	return response.text
 
 
 		  #finding the time and parsing with chrono time/date parser needs to be done
