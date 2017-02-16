@@ -4,11 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Include dropzone script and css -->
-  <script src="/static/js/dropzone.js"></script>
-  <link href="../static/css/dropzone.css" rel="stylesheet">
   
-
+  <!-- Include dropzone script and css -->
+  <script src="../static/js/dropzone.js"></script>
+  <link href="../static/css/dropzone.css" rel="stylesheet">
   
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>PDF Converter - Home</title>
@@ -22,6 +21,31 @@
   
 </head>
 <body>
+	<br>
+	<div align="right">
+      <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+        <!-- Identify your business so that you can collect the payments. -->
+        <input type="hidden" name="business"
+        value="jarockwood14@my.trine.edu">
+
+        <!-- Specify a Donate button. -->
+        <input type="hidden" name="cmd" value="_donations">
+
+        <!-- Specify details about the contribution -->
+        <input type="hidden" name="item_name" value="Trine Software Engineers">
+        <input type="hidden" name="item_number" value="PDF Converter">
+        <input type="hidden" name="currency_code" value="USD">
+
+        <!-- Display the payment button. -->
+        <input type="image" name="submit"
+        src="https://www.paypalobjects.com/webstatic/en_US/i/btn/png/btn_donate_92x26.png"
+        alt="Donate">
+        <img alt="" width="1" height="1"
+        src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+      </form>
+  </div>
   <div class="container">
 
     <!-- Jumbotron -->
@@ -31,20 +55,18 @@
     </div>
 
     <!--Wells -->
-	<div class="jumbotron">
+	
+    <div class="jumbotron">
 		<form action="/uploads"
 		  class="dropzone"
 		  id="file_select"</form>
-	</div>
-	<h3 class="text-left">Previous Files</h3>
-	<div class="jumbotron"></div>
-	<!-- BUTTON -->
-    <div class="text-center" > 
-	  <button type="button" class="btn btn-primary">Begin Conversion</button>
-		<div>
-			
-		</div>
-      <p> </p>
+    </div>
+    
+    <!-- BUTTON -->
+    <div class="text-center" >
+	<form action="/send-doc" method='POST'>
+      <input type="submit" class="btn btn-primary" value='Begin Conversion'></input>
+	</form>
     </div>
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

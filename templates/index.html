@@ -12,7 +12,7 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>PDF Converter - Home</title>
 
-<!-- Bootstrap -->
+  <!-- Bootstrap -->
   <link href="../static/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Include sitecss file -->
@@ -21,8 +21,8 @@
   
 </head>
 <body>
-<br>
-<div align="right">
+	<br>
+	<div align="right">
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 
         <!-- Identify your business so that you can collect the payments. -->
@@ -64,9 +64,13 @@
     
     <!-- BUTTON -->
     <div class="text-center" >
-	<form action="/send-doc" method='POST'>
-      <input type="submit" class="btn btn-primary" value='Begin Conversion'></input>
-	</form>
+		<form action="/send-doc" method='POST'>
+			<input type="submit" class="btn btn-primary" value='Begin Conversion'></input>
+			<script>
+				File file = new File("../uploads");
+				String absolutePath = file.getAbsolutePath();
+			</script>
+		</form>
     </div>
   </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
